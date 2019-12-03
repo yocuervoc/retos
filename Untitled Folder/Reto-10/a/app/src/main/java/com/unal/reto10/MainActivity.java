@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         departamenos_spinner = (Spinner) findViewById(R.id.departamentos);
         municipios_spinner = (Spinner) findViewById(R.id.municipios);
         list = findViewById(R.id.list);
+        /*
         final JsonArrayRequest departamentos = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
@@ -76,16 +77,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                     }
                 });
+
+
         prueba = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, departamentoss);
         list.setAdapter(prueba);
-
+*/
         departamenos_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 municipioss.clear();
                 String tmp = (String) parent.getItemAtPosition(pos);
                 //String url = "https://www.datos.gov.co/resource/jhpq-24h2.json?$select=distinct%20Municipio&Departamento="+ tmp + "&$order=Municipio%20ASC";
-                String url = "https://www.datos.gov.co/resource/xhmd-pcpc.json?departamento="+ departamenos_spinner.getSelectedItem();
+                String url = "https://www.datos.gov.co/resource/w5u4-6ntu.json?departamento="+ departamenos_spinner.getSelectedItem();
 
                 JsonArrayRequest municipios = new JsonArrayRequest
                         (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                     JSONObject tmp = null;
                                     try {
                                         tmp = response.getJSONObject(i);
-                                        municipioss.add(tmp.getString("municipio"));
+                                        municipioss.add(tmp.getString("ciudad"));
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 peajes.clear();
                 final String tmp = (String) parent.getItemAtPosition(pos);
                 //String url = "https://www.datos.gov.co/resource/jhpq-24h2.json?Municipio=" + tmp;
-                String url = " https://www.datos.gov.co/resource/xhmd-pcpc.json?municipio=" + municipios_spinner.getSelectedItem();
+                String url = "https://www.datos.gov.co/resource/w5u4-6ntu.json?ciudad=" + municipios_spinner.getSelectedItem();
 
                 JsonArrayRequest codes = new JsonArrayRequest
                         (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -135,21 +138,12 @@ public class MainActivity extends AppCompatActivity {
                                         tmp = response.getJSONObject(i);
                                         //zona.setText(tmp.getString("operadora"));
 
-                                        String tmp2 = "Operadora: " + tmp.getString("operadora") + "\n";
-                                        tmp2 += "contrato: " + tmp.getString("contrato") + "\n";
-                                        tmp2 += "campo: " + tmp.getString("campo") + "\n";
-                                        tmp2 += "enero: " + tmp.getString("enero") + "\n";
-                                        tmp2 += "febrero: " + tmp.getString("febrero") + "\n";
-                                        tmp2 += "marzo: " + tmp.getString("marzo") + "\n";
-                                        tmp2 += "abril: " + tmp.getString("abril") + "\n";
-                                        tmp2 += "mayo: " + tmp.getString("mayo") + "\n";
-                                        tmp2 += "junio: " + tmp.getString("junio") + "\n";
-                                        tmp2 += "julio: " + tmp.getString("julio") + "\n";
-                                        tmp2 += "agosto: " + tmp.getString("agosto") + "\n";
-                                        tmp2 += "septiembre: " + tmp.getString("septiembre") + "\n";
-                                        tmp2 += "octubre: " + tmp.getString("octubre") + "\n";
-                                        tmp2 += "noviembre: " + tmp.getString("noviembre") + "\n";
-                                        tmp2 += "diciembre: " + tmp.getString("diciembre") + "\n";
+                                        String tmp2 = "año: " + tmp.getString("a_o") + "\n";
+                                        tmp2 += "trimestre: " + tmp.getString("trimestre") + "\n";
+                                        tmp2 += "departamento: " + tmp.getString("departamento") + "\n";
+                                        tmp2 += "ciudad: " + tmp.getString("ciudad") + "\n";
+                                        tmp2 += "declaraciones_de_extra_juicio: " + tmp.getString("declaraciones_de_extra_juicio") + "\n";
+
 
 
 
@@ -176,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-        queue.add(departamentos);
+        //queue.add(departamentos);
 
     }
 }

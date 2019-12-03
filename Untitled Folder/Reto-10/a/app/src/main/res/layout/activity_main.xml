@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Producción Fiscalizada de Petróleo 2017 por departamentos y minicipios"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -25,9 +24,10 @@
         android:id="@+id/departamentos"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:layout_below="@+id/text1"
-        />
+        android:layout_marginTop="-26dp"
+        android:entries="@array/departamentos"
+        android:padding="8dp" />
 
     <TextView
         android:id="@+id/text2"
@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/text3"
-        android:layout_width="wrap_content"
+        android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/municipios"
         android:padding="8dp" />
