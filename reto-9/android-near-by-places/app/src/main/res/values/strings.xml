@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">My Nearby places</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_api_key">AIzaSyArDQsawbAglpzMM_aU0-ChWMFMNbmtzsI</string>
+    <string name="spinner">Spinner</string>
+    <string name="miespiner">MySpinner</string>
+
+    <string-array name="nearby_option">
+        <item>Select a Type</item>
+        <item>Airport</item>
+        <item>Bank</item>
+        <item>Bar</item>
+        <item>Gas Station</item>
+        <item>Hospital</item>
+        <item>Post Office</item>
+        <item>Shopping Mall</item>
+        <item>University</item>
+    </string-array>
+
+    <string-array name="kilometros">
+        <item>Select a number of Km</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+</resources>
